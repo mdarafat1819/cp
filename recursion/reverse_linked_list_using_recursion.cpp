@@ -48,23 +48,28 @@ class SinglyLinkedList{
         }
 
         SinglyLinkedListNode* reverse_list(SinglyLinkedListNode *node){
+
             if(node == NULL) return node;
-
             SinglyLinkedListNode *temp = reverse_list(node ->next);
-            if(temp == NULL) {
-                cout<<"Hello"<<" "<<node->data<<endl;
-            }
-
-            node->next = temp;
-            
-            SinglyLinkedListNode *t = node;
-            while(t != NULL){
-                cout<<t->data<<" ";
-                t = t->next;
-            }
-            cout<<endl;
             return node;
         }
+
+         SinglyLinkedListNode* reverse( SinglyLinkedListNode* head)
+    {
+        if (head == NULL || head->next == NULL)
+            return head;
+ 
+        /* reverse the rest list and put
+          the first element at the end */
+         SinglyLinkedListNode* rest = reverse(head->next);
+        head->next->next = head;
+ 
+        /* tricky step -- see the diagram */
+        head->next = NULL;
+ 
+        /* fix the head pointer */
+        return rest;
+    }
 
         void print(){
             SinglyLinkedListNode *temp = head;
@@ -91,17 +96,24 @@ int main()
     SinglyLinkedList llist;
 
     llist.append(1);
-    //llist.append(2);
-    //llist.append(3);
+    llist.append(2);
+    llist.append(3);
     //llist.append(3);
     //llist.append(4);
     //llist.append(5);
 
     //llist.reverse_linked_list(llist.head);
 
-    llist.head = llist.reverse_list(llist.head);
+    llist.head = llist.reverse(llist.head);
+
+
 
     llist.print();
+
+   // cout<<llist.head->data<<endl;
+    //cout<<llist.head->next->data<<endl;
+    ///cout<<llist.head->next->next->data<<endl;
+   // cout<<llist.head->next->next->next->data<<endl;
     
     return 0;
 }
