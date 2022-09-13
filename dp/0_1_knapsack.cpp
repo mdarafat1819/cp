@@ -26,9 +26,12 @@ int knapsack(int wt[], int val[], int cp, int n) {
 
 int main()
 {
-    int wt[] = {3, 2, 1};
-    int val[] = {10, 15, 50};
-    int cp = 6;
+    // int wt[] = {3, 2, 1};
+    // int val[] = {10, 15, 50};
+    // int cp = 6;
+    int val[] = {60, 100, 120};
+    int wt[] = {10, 20, 30};
+    int cp = 60;
 
     cout<<knapsack(wt, val, cp, 3)<<endl;
     return 0;
