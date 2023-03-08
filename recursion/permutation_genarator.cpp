@@ -42,7 +42,7 @@ void permutation(int arr[], int left, int right) {
         cout<<endl;
         return;
     }
-    for(int i = 0; i < right; i++) //if(!visited[arr[i]]) 
+    for(int i = left; i < right; i++) //if(!visited[arr[i]]) 
     {
         //permutedArray[left] = arr[i];
         swap(arr[left], arr[i]);
