@@ -1,0 +1,6 @@
+# ignore ALL .exe, .o files
+*.exe
+*.o
+
+# ignore ALL files in ANY directory named test
+test/
